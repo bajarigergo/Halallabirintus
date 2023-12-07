@@ -10,9 +10,14 @@ public class Halallabirintus extends javax.swing.JFrame {
     int ugyesseg;
     int eletero;
     int szerencse;
+    int oldal;
+    String szoveg;
+    String btnSzovegBal;
+    String btnSzovegJobb;
 
     public Halallabirintus() {
         initComponents();
+        oldal = 1;
     }
 
     @SuppressWarnings("unchecked")
@@ -21,8 +26,8 @@ public class Halallabirintus extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jButton2 = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
+        tpOssz = new javax.swing.JTabbedPane();
+        pnlKarakter = new javax.swing.JPanel();
         slUgy = new javax.swing.JSlider();
         bttnGeneral = new javax.swing.JButton();
         lblSzerencse = new javax.swing.JLabel();
@@ -41,7 +46,13 @@ public class Halallabirintus extends javax.swing.JFrame {
         lblUgy = new javax.swing.JLabel();
         txtNev = new javax.swing.JTextField();
         slSzerencse = new javax.swing.JSlider();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        pnlJatek = new javax.swing.JPanel();
+        lblJKep = new javax.swing.JLabel();
+        bttnBal = new javax.swing.JButton();
+        bttnJobb = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtJSzoveg = new javax.swing.JTextPane();
+        jPanel3 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mProgram = new javax.swing.JMenu();
         miMentes = new javax.swing.JMenuItem();
@@ -51,6 +62,8 @@ public class Halallabirintus extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Halállabirintus");
+        setMaximumSize(new java.awt.Dimension(468, 487));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -127,7 +140,7 @@ public class Halallabirintus extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblKep, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                .addComponent(lblKep, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -159,80 +172,83 @@ public class Halallabirintus extends javax.swing.JFrame {
 
         lblUgy.setText("Ügyesség");
 
+        txtNev.setText("Add meg a nevet!");
+
         slSzerencse.setMaximum(12);
         slSzerencse.setMinimum(7);
         slSzerencse.setValue(0);
         slSzerencse.setEnabled(false);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlKarakterLayout = new javax.swing.GroupLayout(pnlKarakter);
+        pnlKarakter.setLayout(pnlKarakterLayout);
+        pnlKarakterLayout.setHorizontalGroup(
+            pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlKarakterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlKarakterLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlKarakterLayout.createSequentialGroup()
                                 .addComponent(lblEletero)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(slEletero, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(pnlKarakterLayout.createSequentialGroup()
                                 .addComponent(lblUgy)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(slUgy, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(pnlKarakterLayout.createSequentialGroup()
                                 .addComponent(lblSzerencse)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(slSzerencse, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(txtUgy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEletero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSzerencse, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel2)
-                        .addGap(23, 23, 23)
-                        .addComponent(txtNev, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnGeneral, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnJatek, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(bttnJatek, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bttnGeneral, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlKarakterLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel2)
+                            .addGap(23, 23, 23)
+                            .addComponent(txtNev, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {slEletero, slSzerencse, slUgy});
+        pnlKarakterLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {slEletero, slSzerencse, slUgy});
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtEletero, txtSzerencse, txtUgy});
+        pnlKarakterLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtEletero, txtSzerencse, txtUgy});
 
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        pnlKarakterLayout.setVerticalGroup(
+            pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlKarakterLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlKarakterLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(slUgy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUgy)
                             .addComponent(txtUgy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(slEletero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEletero)
                             .addComponent(txtEletero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(slSzerencse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSzerencse)
                             .addComponent(txtSzerencse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlKarakterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtNev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
@@ -244,10 +260,77 @@ public class Halallabirintus extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtEletero, txtSzerencse, txtUgy});
+        pnlKarakterLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtEletero, txtSzerencse, txtUgy});
 
-        jTabbedPane1.addTab("Karakter", jPanel3);
-        jTabbedPane1.addTab("Játék", jTabbedPane2);
+        tpOssz.addTab("Karakter", pnlKarakter);
+
+        lblJKep.setIcon(new javax.swing.ImageIcon(getClass().getResource("/csomag/320Magas/1. oldal.png"))); // NOI18N
+        lblJKep.setText("jLabel1");
+
+        bttnBal.setText("Kinyitod a dobozt...");
+        bttnBal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnBalActionPerformed(evt);
+            }
+        });
+
+        bttnJobb.setText("Haladsz tovább...");
+        bttnJobb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttnJobbActionPerformed(evt);
+            }
+        });
+
+        txtJSzoveg.setEditable(false);
+        txtJSzoveg.setContentType("text/html"); // NOI18N
+        txtJSzoveg.setText("<html>\r\n  <head>\r\n  </head>\r\n  <body>\r\n    <p style=\"margin-top: 0\">\r\nMiután öt percet haladtál lassan az alagútban, egy kőasztalhoz érsz, amely a bal oldali fal mellett áll. Hat doboz van rajta, egyikükre a te neved festették.\n    </p>\r\n  </body>\r\n</html>\r\n");
+        jScrollPane1.setViewportView(txtJSzoveg);
+
+        javax.swing.GroupLayout pnlJatekLayout = new javax.swing.GroupLayout(pnlJatek);
+        pnlJatek.setLayout(pnlJatekLayout);
+        pnlJatekLayout.setHorizontalGroup(
+            pnlJatekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlJatekLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlJatekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblJKep, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttnBal, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlJatekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlJatekLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(bttnJobb, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+                    .addGroup(pnlJatekLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+        );
+        pnlJatekLayout.setVerticalGroup(
+            pnlJatekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlJatekLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(pnlJatekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblJKep, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addGap(16, 16, 16)
+                .addGroup(pnlJatekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(bttnJobb, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(bttnBal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        tpOssz.addTab("Játék", pnlJatek);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 435, Short.MAX_VALUE)
+        );
+
+        tpOssz.addTab("Eszköztár", jPanel3);
 
         mProgram.setText("Program");
 
@@ -272,18 +355,18 @@ public class Halallabirintus extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(tpOssz)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addComponent(tpOssz))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bttnGeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnGeneralActionPerformed
@@ -321,10 +404,14 @@ public class Halallabirintus extends javax.swing.JFrame {
     }//GEN-LAST:event_rbttnNoStateChanged
 
     private void bttnJatekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnJatekActionPerformed
-//        if (txtNev.getText() == "")
-//        {
-//            JOptionPane.showMessageDialog(null, "Adj meg egy nevet a karakterednek!", "HIBA!", JOptionPane.WARNING_MESSAGE);
-//        }
+
+        String szoveg = "Add meg a nevet!";
+        String ures = "";
+        if (txtNev.getText().equals(szoveg) || txtNev.getText().equals(ures)) {
+            JOptionPane.showMessageDialog(null, "Adj meg egy nevet a karakterednek!", "HIBA!", JOptionPane.WARNING_MESSAGE);
+        } else {
+            tpOssz.setSelectedIndex(1);
+        }
     }//GEN-LAST:event_bttnJatekActionPerformed
 
     private void kilepes() throws HeadlessException {
@@ -343,8 +430,33 @@ public class Halallabirintus extends javax.swing.JFrame {
     }//GEN-LAST:event_miKilepesActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       kilepes();
+        kilepes();
     }//GEN-LAST:event_formWindowClosing
+
+    private void bttnJobbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnJobbActionPerformed
+        if (oldal == 1) {
+            lap66();
+        }
+        else if (oldal == 66) {
+            lap56();
+        }
+    }//GEN-LAST:event_bttnJobbActionPerformed
+
+    private void bttnBalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnBalActionPerformed
+        if (oldal == 1) {
+            lap270();
+        }
+        else if (oldal == 270) {
+            bttnJobb.setEnabled(true);
+            lap66();
+        }
+        else if (oldal == 66) {
+            lap293();
+        }
+        else if (oldal == 293) {
+            lap137();
+        }
+    }//GEN-LAST:event_bttnBalActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -379,8 +491,10 @@ public class Halallabirintus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bttnBal;
     private javax.swing.JButton bttnGeneral;
     private javax.swing.JButton bttnJatek;
+    private javax.swing.JButton bttnJobb;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
@@ -388,23 +502,105 @@ public class Halallabirintus extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEletero;
+    private javax.swing.JLabel lblJKep;
     private javax.swing.JLabel lblKep;
     private javax.swing.JLabel lblSzerencse;
     private javax.swing.JLabel lblUgy;
     private javax.swing.JMenu mProgram;
     private javax.swing.JMenuItem miKilepes;
     private javax.swing.JMenuItem miMentes;
+    private javax.swing.JPanel pnlJatek;
+    private javax.swing.JPanel pnlKarakter;
     private javax.swing.JRadioButton rbttnFerfi;
     private javax.swing.JRadioButton rbttnNo;
     private javax.swing.JSlider slEletero;
     private javax.swing.JSlider slSzerencse;
     private javax.swing.JSlider slUgy;
+    private javax.swing.JTabbedPane tpOssz;
     private javax.swing.JTextField txtEletero;
+    private javax.swing.JTextPane txtJSzoveg;
     private javax.swing.JTextField txtNev;
     private javax.swing.JTextField txtSzerencse;
     private javax.swing.JTextField txtUgy;
     // End of variables declaration//GEN-END:variables
+
+    private void lap66() {
+        oldal = 66;
+        szoveg = "Néhány perc gyaloglás után egy elágazáshoz érsz az alagútban. Egy, a falra festett fehér nyíl nyugatfelé mutat. A földön nedves lábnyomok jelzik, merre haladtak az előtted járók. Nehéz biztosan megmondani, de úgy tűnik, hogy három közülük a nyíl irányába halad, míg egyikük úgy döntött, hogy keletnek megy. \n";
+        txtJSzoveg.setText(leiras(szoveg));
+        btnSzovegBal = "Nyugat felé kívánsz menni.";
+        btnSzovegJobb = "Kelet felé kívánsz menni.";
+        bttnBal.setText(leiras(btnSzovegBal));
+        bttnJobb.setText(leiras(btnSzovegJobb));
+        ImageIcon icon = new ImageIcon("src\\csomag\\320Magas\\66. oldal.png");
+        lblJKep.setIcon(icon);
+    }
+    
+    private void lap270() {
+        oldal = 270;
+        szoveg = "A doboz teteje könnyedén nyílik. Benne két aranypénzt találsz, és egy üzenetet, amely egy kis pergamenen neked szól. Előbb zsebre vágod az aranyakat, aztán elolvasod az üzenetet: - „Jól tetted. Legalább volt annyi eszed, hogy megállj és elfogadd az ajándékot. Most azt tanácsolom neked, hogy keress és használj különféle tárgyakat, ha sikerrel akarsz áthaladni Halállabirintusomon.” Azaláírás Szukumvit.\n";
+        txtJSzoveg.setText(leiras(szoveg));
+        btnSzovegBal = "Megjegyzed a tanácsot, apródarabokra téped a pergament,\nés tovább mészészak felé.";
+        bttnJobb.setEnabled(false);
+        bttnBal.setText(leiras(btnSzovegBal));
+        bttnJobb.setText("");
+        ImageIcon icon = new ImageIcon("src\\csomag\\320Magas\\270. oldal 2.png");
+        lblJKep.setIcon(icon);
+    }
+
+    private String leiras(String jSzoveg) {
+        String kiirat = "<html>\n"
+            + "  <head>\n"
+            + "  </head>\n"
+            + "  <body>\n"
+            + "    <p style=\"margin-top: 0\">\n"
+            + jSzoveg
+            + "    </p>\n"
+            + "  </body>\n"
+            + "</html>\n"
+            + "";
+        return kiirat;
+    }
+
+    private void lap293() {
+        oldal = 293;
+        szoveg = "A három pár nedves lábnyomot követve az alagútnyugati elágazásában hamarosan egy újabb el-ágazáshoz érsz.\n";
+        txtJSzoveg.setText(leiras(szoveg));
+        btnSzovegBal = "Továbbmész nyugat felé a lábnyomokat követve...";
+        btnSzovegJobb = "Észak felé mész a harmadik pár lábnyom után...";
+        bttnBal.setText(leiras(btnSzovegBal));
+        bttnJobb.setText(leiras(btnSzovegJobb));
+        ImageIcon icon = new ImageIcon("src\\csomag\\320Magas\\293. oldal.png");
+        lblJKep.setIcon(icon);
+    }
+    
+    private void lap56() {
+        oldal = 56;
+        szoveg = "Látod, hogy az akadály egy széles, barna, sziklaszerű tárgy. Megérinted, és meglepve tapasztalod, hogy lágy, szivacsszerű. \n";
+        txtJSzoveg.setText(leiras(szoveg));
+        btnSzovegBal = "Átmászok rajta...";
+        btnSzovegJobb = "Kettévágom a kardommal...";
+        bttnBal.setText(leiras(btnSzovegBal));
+        bttnJobb.setText(leiras(btnSzovegJobb));
+        ImageIcon icon = new ImageIcon("src\\csomag\\320Magas\\56. oldal.png");
+        lblJKep.setIcon(icon);
+    }
+
+    private void lap137() {
+        oldal = 137;
+        szoveg = "Ahogy végigmész az alagúton, csodálkozva látod, hogy egy jókora vasharang csüng alá a boltozatról.\n";
+        txtJSzoveg.setText(leiras(szoveg));
+        btnSzovegBal = "";
+        bttnJobb.setEnabled(false);
+        btnSzovegJobb = "";
+        bttnBal.setEnabled(false);
+        bttnBal.setText(leiras(btnSzovegBal));
+        bttnJobb.setText(leiras(btnSzovegJobb));
+        ImageIcon icon = new ImageIcon("src\\csomag\\320Magas\\137olda.png");
+        lblJKep.setIcon(icon);
+    }
+
+    
 }
